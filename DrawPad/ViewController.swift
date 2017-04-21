@@ -9,10 +9,22 @@
 import UIKit
 
 
+protocol protocoloCambiaFoto {
+    func modificaFoto(imagen : UIImage) -> Void
+    
+}
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
+    
+    var myImage : UIImage? = nil
+    var originalImage : UIImage? = nil
+
+    
+    var delegado : protocoloCambiaFoto!
+
     
     //lastPoint stores the last drawn point on the canvas. This is used when a continuous brush stroke is being drawn on the canvas.
     var lastPoint: CGPoint!
@@ -52,19 +64,13 @@ class ViewController: UIViewController {
 
 
     
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+        
+        tempImageView.image = myImage
+        originalImage = myImage
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-    
     
     
     
@@ -143,14 +149,31 @@ class ViewController: UIViewController {
     }
 
     
+    @IBOutlet weak var btnCancel: UIButton!
 
+    @IBAction func save(_ sender: Any) {
+        
+        print("Save!")
+        
+        delegado.modificaFoto(imagen:tempImageView.image!)
+        self.dismiss(animated: true, completion: nil)
+
+        
+    }
+    
+    @IBAction func cancel(_ sender: Any) {
+    
+        print("Cancel!")
+        self.dismiss(animated: true, completion: nil)
+    }
 
     // MARK: - Actions
     
 
     @IBAction func reset(_ sender: AnyObject) {
     
-        self.tempImageView.image = nil
+        self.tempImageView.image = originalImage
+        
     }
 
     @IBAction func share(_ sender: AnyObject) {

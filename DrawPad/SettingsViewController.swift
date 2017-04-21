@@ -1,5 +1,6 @@
 import UIKit
 
+
 class SettingsViewController: UIViewController {
 
     @IBOutlet weak var sliderBrush: UISlider!

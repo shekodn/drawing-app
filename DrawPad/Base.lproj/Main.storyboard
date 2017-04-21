@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="h5m-qB-YpM">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--MainVC-->
         <scene sceneID="eLX-YC-LrB">
             <objects>
-                <viewController id="h5m-qB-YpM" sceneMemberID="viewController">
+                <viewController id="h5m-qB-YpM" customClass="mainVC" customModule="DrawPad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Ar-ai-bg1"/>
                         <viewControllerLayoutGuide type="bottom" id="NRw-3k-oMI"/>
@@ -21,9 +22,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QTH-RF-cwR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Screen Shot 2017-04-20 at 9.15.36 AM" translatesAutoresizingMaskIntoConstraints="NO" id="QTH-RF-cwR">
                                 <rect key="frame" x="0.0" y="195" width="414" height="346"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Guy-jj-5zO">
+                                <rect key="frame" x="166" y="678" width="82" height="38"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="vXZ-lx-hvc" kind="show" identifier="toEdit" id="8Mv-7z-qZ6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -31,10 +39,13 @@
                             <constraint firstItem="QTH-RF-cwR" firstAttribute="centerY" secondItem="YwQ-vL-83u" secondAttribute="centerY" id="MhJ-px-LEg"/>
                             <constraint firstItem="QTH-RF-cwR" firstAttribute="leading" secondItem="YwQ-vL-83u" secondAttribute="leading" id="YVh-1f-KDu"/>
                             <constraint firstItem="QTH-RF-cwR" firstAttribute="centerX" secondItem="YwQ-vL-83u" secondAttribute="centerX" id="jdl-Rv-kXE"/>
+                            <constraint firstItem="NRw-3k-oMI" firstAttribute="top" secondItem="Guy-jj-5zO" secondAttribute="bottom" constant="20" id="nu1-f0-O7q"/>
+                            <constraint firstItem="Guy-jj-5zO" firstAttribute="centerX" secondItem="YwQ-vL-83u" secondAttribute="centerX" id="ugs-bu-7Gt"/>
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="show" id="drt-jj-Fdv"/>
+                        <outlet property="btnEdit" destination="Guy-jj-5zO" id="mzH-0q-HGi"/>
+                        <outlet property="imageView" destination="QTH-RF-cwR" id="29E-r1-GDa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rXT-vl-1Qk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -53,10 +64,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VdO-SK-Y4k" userLabel="MainImageView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VdO-SK-Y4k" userLabel="MainImageView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AyQ-rv-3rx" userLabel="TempImageView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AyQ-rv-3rx" userLabel="TempImageView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXM-0K-bSp">
@@ -239,12 +250,26 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7b-9S-s9X">
-                                <rect key="frame" x="178.66666666666666" y="28" width="57" height="30"/>
+                                <rect key="frame" x="179" y="28" width="57" height="30"/>
                                 <state key="normal" title="Settings">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="LFy-TC-tvP" kind="presentation" id="dsT-HQ-c5Y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bd-0c-D1s">
+                                <rect key="frame" x="43" y="482" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancel:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="3eD-3B-GSA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l6X-ES-3qA">
+                                <rect key="frame" x="308" y="482" width="34" height="30"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="save:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7pg-GP-LNI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -257,11 +282,13 @@
                             <constraint firstItem="jNR-iD-Ndp" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="3tq-CS-rhS"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="YEM-9V-CN2" secondAttribute="bottom" id="7Ag-1y-nt7"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="qsX-6Q-hQO" secondAttribute="bottom" id="7g9-mt-Fsm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="l6X-ES-3qA" secondAttribute="trailing" constant="52" id="8Q0-nZ-KmH"/>
                             <constraint firstItem="Zjb-yU-tTH" firstAttribute="leading" secondItem="qsX-6Q-hQO" secondAttribute="trailing" id="BjZ-i7-Hdo"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Oiq-ox-SIC" secondAttribute="bottom" id="DHl-ie-OK3"/>
                             <constraint firstItem="AyQ-rv-3rx" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="Foo-lp-p03"/>
                             <constraint firstItem="Oiq-ox-SIC" firstAttribute="leading" secondItem="t6i-mo-6bg" secondAttribute="trailing" id="Ggx-nr-Ewx"/>
                             <constraint firstItem="YEM-9V-CN2" firstAttribute="leading" secondItem="AS0-2Z-9yr" secondAttribute="trailing" id="Glz-w0-Erg"/>
+                            <constraint firstItem="3bd-0c-D1s" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" constant="129" id="IFu-He-TTF"/>
                             <constraint firstItem="i05-bO-2cv" firstAttribute="leading" secondItem="lbp-Iy-trp" secondAttribute="trailing" id="INy-1o-OFG"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="vfv-gq-tgv" secondAttribute="bottom" id="KOJ-Qj-A17"/>
                             <constraint firstItem="t6i-mo-6bg" firstAttribute="leading" secondItem="Zjb-yU-tTH" secondAttribute="trailing" id="LNJ-3f-EMQ"/>
@@ -269,6 +296,7 @@
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="AyQ-rv-3rx" secondAttribute="bottom" id="NLd-8O-NK5"/>
                             <constraint firstItem="bQB-tH-j99" firstAttribute="leading" secondItem="YEM-9V-CN2" secondAttribute="trailing" id="V9d-Sr-CxW"/>
                             <constraint firstItem="CXM-0K-bSp" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="VBB-PC-enV"/>
+                            <constraint firstItem="l6X-ES-3qA" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" constant="129" id="VtW-1F-8eb"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="i05-bO-2cv" secondAttribute="bottom" id="War-sZ-Ze7"/>
                             <constraint firstItem="s8h-vW-qkM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="XwH-tZ-yG9"/>
                             <constraint firstAttribute="trailing" secondItem="AyQ-rv-3rx" secondAttribute="trailing" id="ZxO-W1-0wy"/>
@@ -281,6 +309,7 @@
                             <constraint firstItem="jNR-iD-Ndp" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" symbolic="YES" id="nj9-dq-wEE"/>
                             <constraint firstItem="vfv-gq-tgv" firstAttribute="leading" secondItem="Oiq-ox-SIC" secondAttribute="trailing" id="qnK-vW-ISB"/>
                             <constraint firstItem="p7b-9S-s9X" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="ta2-Xh-EOE"/>
+                            <constraint firstItem="3bd-0c-D1s" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="23" id="uZW-Nq-jlX"/>
                             <constraint firstItem="AS0-2Z-9yr" firstAttribute="leading" secondItem="s8h-vW-qkM" secondAttribute="trailing" id="wPY-uS-jMd"/>
                             <constraint firstAttribute="centerX" secondItem="p7b-9S-s9X" secondAttribute="centerX" id="wxP-c2-Rwg"/>
                             <constraint firstItem="lbp-Iy-trp" firstAttribute="leading" secondItem="bQB-tH-j99" secondAttribute="trailing" id="wxu-2m-h0b"/>
@@ -289,6 +318,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnCancel" destination="3bd-0c-D1s" id="5Ff-Z7-Ne3"/>
                         <outlet property="mainImageView" destination="VdO-SK-Y4k" id="TIY-mP-Myh"/>
                         <outlet property="tempImageView" destination="AyQ-rv-3rx" id="Hd8-8f-jAc"/>
                     </connections>
@@ -508,6 +538,7 @@
         <image name="LightBlue" width="53" height="332"/>
         <image name="LightGreen" width="53" height="332"/>
         <image name="Red" width="53" height="332"/>
+        <image name="Screen Shot 2017-04-20 at 9.15.36 AM" width="357" height="381"/>
         <image name="Yellow" width="53" height="332"/>
     </resources>
 </document>
