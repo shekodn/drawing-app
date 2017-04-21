@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "10EE513D21D62B334DC28E67CFF209DE3DECF5F6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "10EE513D21D62B334DC28E67CFF209DE3DECF5F6" : 9223372036854775807,
+    "B0286CFCDA9520CE0463BF894D2EC6716C693DED" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "927F99F3-FE16-4899-B10F-32BAC40E6AE6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "10EE513D21D62B334DC28E67CFF209DE3DECF5F6" : "drawing-app\/",
+    "B0286CFCDA9520CE0463BF894D2EC6716C693DED" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "DrawPad",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "DrawPad.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/shekodn\/drawing-app.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "10EE513D21D62B334DC28E67CFF209DE3DECF5F6"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/shekodn\/camera-app.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B0286CFCDA9520CE0463BF894D2EC6716C693DED"
+    }
+  ]
+}
