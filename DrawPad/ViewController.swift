@@ -147,6 +147,7 @@ class ViewController: UIViewController {
             drawLineFrom(fromPoint: lastPoint, toPoint: lastPoint)
         }
         
+        
     }
 
     
@@ -156,8 +157,16 @@ class ViewController: UIViewController {
         
         print("Save!")
         
-        delegado.modificaFoto(imagen:tempImageView.image!)
+    
+        
+        let imageToSave : UIImage! = composite(image:imageViewPhoto.image!, overlay:tempImageView.image!)
+        
+//        let imageToSave : UIImage! = composite(image:tempImageView.image!, overlay:imageViewPhoto.image!)
+
+        
+        delegado.modificaFoto(imagen: imageToSave)
         self.dismiss(animated: true, completion: nil)
+        
 
         
     }
@@ -180,7 +189,30 @@ class ViewController: UIViewController {
     @IBAction func share(_ sender: AnyObject) {
     
     }
-      
+    
+    func composite(image:UIImage, overlay: UIImage, scaleOverlay: Bool = false)->UIImage?{
+        
+        UIGraphicsBeginImageContext(image.size)
+        
+        var rect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+        
+        
+        print("image.size.width \(image.size.width)")
+        print("image.size.width \(image.size.height)")
+
+        
+        image.draw(in: rect)
+        
+        if scaleOverlay == false {
+            rect = CGRect(x: 0, y: 0, width: overlay.size.width, height: overlay.size.height)
+        }
+       
+        overlay.draw(in: rect)
+        
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
+
+    
     @IBAction func pencilPressed(_ sender: AnyObject) {
         
     
