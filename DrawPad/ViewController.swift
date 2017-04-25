@@ -16,8 +16,8 @@ protocol protocoloCambiaFoto {
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
+    @IBOutlet weak var imageViewPhoto: UIImageView!
     
     var myImage : UIImage? = nil
     var originalImage : UIImage? = nil
@@ -67,8 +67,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tempImageView.image = myImage
-        originalImage = myImage
+        tempImageView.image = nil
+        originalImage = nil
+        imageViewPhoto.image = myImage
 
     }
     
