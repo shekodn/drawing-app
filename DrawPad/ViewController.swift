@@ -22,7 +22,6 @@ class ViewController: UIViewController {
     var myImage : UIImage? = nil
     var originalImage : UIImage? = nil
 
-    
     var delegado : protocoloCambiaFoto!
 
     
