@@ -70,7 +70,7 @@ class ViewController: UIViewController {
         tempImageView.image = nil
         originalImage = nil
         imageViewPhoto.image = myImage
-
+    
     }
     
     
@@ -121,8 +121,7 @@ class ViewController: UIViewController {
         tempImageView.image = UIGraphicsGetImageFromCurrentImageContext()
         tempImageView.alpha = opacity
         UIGraphicsEndImageContext()
-
-
+        
         
     }
     
@@ -157,17 +156,19 @@ class ViewController: UIViewController {
         
         print("Save!")
         
-    
-        
-        let imageToSave : UIImage! = composite(image:imageViewPhoto.image!, overlay:tempImageView.image!)
-        
-//        let imageToSave : UIImage! = composite(image:tempImageView.image!, overlay:imageViewPhoto.image!)
+
+        var imageToSave : UIImage? = composite(image:imageViewPhoto.image, overlay:tempImageView.image)
 
         
-        delegado.modificaFoto(imagen: imageToSave)
+        if (imageToSave == nil){
+            
+            print("Since image was not modified it was saved as the original")
+            imageToSave = originalImage
+        }
+        
+        
+        delegado.modificaFoto(imagen: imageToSave!)
         self.dismiss(animated: true, completion: nil)
-        
-
         
     }
     
@@ -190,26 +191,31 @@ class ViewController: UIViewController {
     
     }
     
-    func composite(image:UIImage, overlay: UIImage, scaleOverlay: Bool = false)->UIImage?{
-        
-        UIGraphicsBeginImageContext(image.size)
-        
-        var rect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+    func composite(image:UIImage?, overlay: UIImage?, scaleOverlay: Bool = false)->UIImage?{
         
         
-        print("image.size.width \(image.size.width)")
-        print("image.size.width \(image.size.height)")
+        if image != nil && overlay != nil {
+            
+            UIGraphicsBeginImageContext(image!.size)
+            
+            var rect = CGRect(x: 0, y: 0, width: image!.size.width, height: image!.size.height)
+            
+        
+            image?.draw(in: rect)
+            
+            if scaleOverlay == true {
+                rect = CGRect(x: 0, y: 0, width: overlay!.size.width, height: overlay!.size.height)
+            }
+            
+            overlay!.draw(in: rect)
+            
+            return UIGraphicsGetImageFromCurrentImageContext()
 
-        
-        image.draw(in: rect)
-        
-        if scaleOverlay == false {
-            rect = CGRect(x: 0, y: 0, width: overlay.size.width, height: overlay.size.height)
+        } else{
+            
+            return image
         }
-       
-        overlay.draw(in: rect)
         
-        return UIGraphicsGetImageFromCurrentImageContext()
     }
 
     
