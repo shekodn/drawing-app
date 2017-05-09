@@ -16,6 +16,12 @@ protocol protocoloCambiaFoto {
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var btnCancel: UIButton!
+    @IBOutlet weak var btnDraw: UIButton!
+    @IBOutlet weak var btnSave: UIButton!
+    @IBOutlet weak var btnReset: UIButton!
+    @IBOutlet weak var colorPallet: UIStackView!
+
     @IBOutlet weak var tempImageView: UIImageView!
     @IBOutlet weak var imageViewPhoto: UIImageView!
     
@@ -40,6 +46,9 @@ class ViewController: UIViewController {
     
     //swiped identifies if the brush stroke is continuous.
     var swiped = false
+    
+    //is drawing identifies if the drawing functionality is active or not
+    var isDrawing = false
     
     
     
@@ -72,9 +81,22 @@ class ViewController: UIViewController {
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        swiped = false
-        if let touch = touches.first {
-            lastPoint = touch.location(in: self.view)
+        
+        if(isDrawing){
+            
+            
+            btnSave.fadeOut()
+            btnCancel.fadeOut()
+            btnDraw.fadeOut()
+            btnReset.fadeOut()
+            colorPallet.fadeOut()
+
+            
+            swiped = false
+            
+            if let touch = touches.first {
+                lastPoint = touch.location(in: self.view)
+            }
         }
     }
 
@@ -123,30 +145,73 @@ class ViewController: UIViewController {
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        //7 In touchesMoved, you set swiped to true so you can keep track of whether there is a current swipe in progress. Since this is touchesMoved, the answer is yes, there is a swipe in progress! You then call the helper method you just wrote to draw the line.
 
-        swiped = true
-        if let touch = touches.first {
-            let currentPoint = touch.location(in: view)
-            drawLineFrom(fromPoint: lastPoint, toPoint: currentPoint)
+        
+        if(isDrawing){
             
-            //Finally, you update the lastPoint so the next touch event will continue where you just left off.
-            lastPoint = currentPoint
+            //7 In touchesMoved, you set swiped to true so you can keep track of whether there is a current swipe in progress. Since this is touchesMoved, the answer is yes, there is a swipe in progress! You then call the helper method you just wrote to draw the line.
+
+            swiped = true
+
+            if let touch = touches.first {
+                let currentPoint = touch.location(in: view)
+                drawLineFrom(fromPoint: lastPoint, toPoint: currentPoint)
+                
+                //Finally, you update the lastPoint so the next touch event will continue where you just left off.
+                lastPoint = currentPoint
+            }
+
         }
+        
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        if !swiped {
-            // draw a single point
-            drawLineFrom(fromPoint: lastPoint, toPoint: lastPoint)
+        
+        if(isDrawing){
+            
+            btnSave.fadeIn()
+            btnCancel.fadeIn()
+            btnDraw.fadeIn()
+            btnReset.fadeIn()
+            colorPallet.fadeIn()
+
+            
+            if !swiped {
+                // draw a single point
+                drawLineFrom(fromPoint: lastPoint, toPoint: lastPoint)
+            }
         }
-        
-        
     }
 
     
-    @IBOutlet weak var btnCancel: UIButton!
+    
+    // MARK: - Actions
+
+    
+    @IBAction func draw(_ sender: Any) {
+        
+        isDrawing = !isDrawing
+        
+        if(isDrawing){
+            
+            colorPallet.fadeIn()
+            print("drawing!")
+            btnDraw.backgroundColor = .black
+            btnDraw.layer.borderColor = UIColor.white.cgColor
+            
+        
+        } else{
+            
+            btnDraw.backgroundColor = .clear
+            btnDraw.layer.borderColor = UIColor.clear.cgColor
+
+            colorPallet.fadeOut()
+            print("not drawing!")
+
+        }
+    }
+    
 
     @IBAction func save(_ sender: Any) {
         
@@ -174,7 +239,6 @@ class ViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
-    // MARK: - Actions
     
 
     @IBAction func reset(_ sender: AnyObject) {
@@ -215,7 +279,7 @@ class ViewController: UIViewController {
     }
 
     
-    @IBAction func pencilPressed(_ sender: AnyObject) {
+    @IBAction func colorPalletPressed(_ sender: AnyObject) {
         
     
         var index = sender.tag ?? 0
@@ -226,6 +290,8 @@ class ViewController: UIViewController {
         
         // 2
         (red, green, blue) = colors[index]
+        btnDraw.backgroundColor = .colors[index]
+
         
         // 3
         if index == colors.count - 1 {

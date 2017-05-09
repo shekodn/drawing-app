@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4648E36D1EA7BDB5006BCD64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE43D4721A14A6F200311C06 /* AppDelegate.swift */; };
 		46F36E061EAAA4A800CF428B /* mainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F36E051EAAA4A800CF428B /* mainVC.swift */; };
-		78B4B8751A49DDAF002B004D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B4B8741A49DDAF002B004D /* SettingsViewController.swift */; };
+		46FB58581EC21F95007AB7DF /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FB58571EC21F95007AB7DF /* UIViewExtensions.swift */; };
 		EE43D4731A14A6F200311C06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE43D4721A14A6F200311C06 /* AppDelegate.swift */; };
 		EE43D4751A14A6F200311C06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE43D4741A14A6F200311C06 /* ViewController.swift */; };
 		EE43D4781A14A6F200311C06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE43D4761A14A6F200311C06 /* Main.storyboard */; };
@@ -30,7 +30,7 @@
 
 /* Begin PBXFileReference section */
 		46F36E051EAAA4A800CF428B /* mainVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainVC.swift; sourceTree = "<group>"; };
-		78B4B8741A49DDAF002B004D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		46FB58571EC21F95007AB7DF /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		EE43D46D1A14A6F200311C06 /* DrawPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE43D4711A14A6F200311C06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE43D4721A14A6F200311C06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 			children = (
 				EE43D4721A14A6F200311C06 /* AppDelegate.swift */,
 				EE43D4741A14A6F200311C06 /* ViewController.swift */,
-				78B4B8741A49DDAF002B004D /* SettingsViewController.swift */,
+				46FB58571EC21F95007AB7DF /* UIViewExtensions.swift */,
 				EE43D4761A14A6F200311C06 /* Main.storyboard */,
 				46F36E051EAAA4A800CF428B /* mainVC.swift */,
 				EE43D4791A14A6F200311C06 /* Images.xcassets */,
@@ -224,8 +224,8 @@
 			files = (
 				EE43D4751A14A6F200311C06 /* ViewController.swift in Sources */,
 				46F36E061EAAA4A800CF428B /* mainVC.swift in Sources */,
+				46FB58581EC21F95007AB7DF /* UIViewExtensions.swift in Sources */,
 				EE43D4731A14A6F200311C06 /* AppDelegate.swift in Sources */,
-				78B4B8751A49DDAF002B004D /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
