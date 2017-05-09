@@ -279,7 +279,7 @@ class ViewController: UIViewController {
     }
 
     
-    @IBAction func colorPalletPressed(_ sender: AnyObject) {
+    @IBAction func pencilPressed(_ sender: AnyObject) {
         
     
         var index = sender.tag ?? 0
@@ -290,7 +290,6 @@ class ViewController: UIViewController {
         
         // 2
         (red, green, blue) = colors[index]
-        btnDraw.backgroundColor = .colors[index]
 
         
         // 3
