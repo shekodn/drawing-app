@@ -52,6 +52,7 @@ class ViewController: UIViewController {
     
     
     
+    
     //This builds up an array of RGB values, where each array element is a tuple of three
     // CGFloats. The colors here match the order of the colors in the interface as well as each 
     //button’s tag.
@@ -72,6 +73,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        colorPallet.alpha = 0
+        btnReset.alpha = 0
+
         tempImageView.image = nil
         originalImage = nil
         imageViewPhoto.image = myImage
@@ -195,18 +199,20 @@ class ViewController: UIViewController {
         
         if(isDrawing){
             
-            colorPallet.fadeIn()
-            print("drawing!")
+            colorPallet.alpha = 1
+            btnReset.alpha = 1
             btnDraw.backgroundColor = .black
             btnDraw.layer.borderColor = UIColor.white.cgColor
+            print("drawing!")
+
             
         
         } else{
-            
+
+            colorPallet.alpha = 0
+            btnReset.alpha = 0
             btnDraw.backgroundColor = .clear
             btnDraw.layer.borderColor = UIColor.clear.cgColor
-
-            colorPallet.fadeOut()
             print("not drawing!")
 
         }
