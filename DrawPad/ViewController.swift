@@ -89,11 +89,11 @@ class ViewController: UIViewController {
         if(isDrawing){
             
             
-            btnSave.fadeOut()
-            btnCancel.fadeOut()
-            btnDraw.fadeOut()
-            btnReset.fadeOut()
-            colorPallet.fadeOut()
+            btnSave.fadeOut(0.5)
+            btnCancel.fadeOut(0.5)
+            btnDraw.fadeOut(0.5)
+            btnReset.fadeOut(0.5)
+            colorPallet.fadeOut(0.5)
 
             
             swiped = false
@@ -174,11 +174,11 @@ class ViewController: UIViewController {
         
         if(isDrawing){
             
-            btnSave.fadeIn()
-            btnCancel.fadeIn()
-            btnDraw.fadeIn()
-            btnReset.fadeIn()
-            colorPallet.fadeIn()
+            btnSave.fadeIn(0.5)
+            btnCancel.fadeIn(0.5)
+            btnDraw.fadeIn(0.5)
+            btnReset.fadeIn(0.5)
+            colorPallet.fadeIn(0.5)
 
             
             if !swiped {
