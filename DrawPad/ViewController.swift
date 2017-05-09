@@ -290,6 +290,12 @@ class ViewController: UIViewController {
         
         // 2
         (red, green, blue) = colors[index]
+        print(red*255, green*255, blue*255)
+        btnDraw.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+
+        
+        
+        
 
         
         // 3
