@@ -113,7 +113,7 @@ class ViewController: UIViewController {
         
         if(isDrawing){
             
-            
+            viewBackgroundColorPallette.fadeOut(0.5)
             btnSave.fadeOut(0.5)
             btnCancel.fadeOut(0.5)
             btnDraw.fadeOut(0.5)
@@ -204,6 +204,7 @@ class ViewController: UIViewController {
             btnDraw.fadeIn(0.5)
             btnReset.fadeIn(0.5)
             colorPallet.fadeIn(0.5)
+            viewBackgroundColorPallette.fadeIn(0.5)
 
             
             if !swiped {
