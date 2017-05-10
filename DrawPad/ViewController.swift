@@ -75,6 +75,7 @@ class ViewController: UIViewController {
         
         colorPallet.alpha = 0
         btnReset.alpha = 0
+        viewBackgroundColorPallette.alpha = 0
 
         tempImageView.image = nil
         originalImage = nil
@@ -277,10 +278,6 @@ class ViewController: UIViewController {
     
         self.tempImageView.image = originalImage
         
-    }
-
-    @IBAction func share(_ sender: AnyObject) {
-    
     }
     
     func composite(image:UIImage?, overlay: UIImage?, scaleOverlay: Bool = false)->UIImage?{
