@@ -16,6 +16,7 @@ protocol protocoloCambiaFoto {
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var viewBackgroundColorPallette: UIView!
     @IBOutlet weak var btnCancel: UIButton!
     @IBOutlet weak var btnDraw: UIButton!
     @IBOutlet weak var btnSave: UIButton!
@@ -58,14 +59,13 @@ class ViewController: UIViewController {
     //button’s tag.
 
     let colors: [(CGFloat, CGFloat, CGFloat)] = [
+        (255.0 / 255.0, 0.0   / 255.0, 24.0  / 255.0), //red
+        (252.0 / 255.0, 162.0 / 255.0, 1.0   / 255.0), //yellow
+        (254.0 / 255.0, 250.0 / 255.0, 4.0   / 255.0), //yellow
+        (41.0  / 255.0, 159.0 / 255.0, 46.0  / 255.0), //green
+        (2.0   / 255.0, 82.0  / 255.0, 173.0 / 255.0), //blue
+        (136.0 / 255.0, 60.0  / 255.0, 191.0 / 255.0), //purple
         (0, 0, 0), //black
-        (128.0 / 255.0, 128.0 / 255.0, 129.0 / 255.0), //grey
-        (29.0 / 255.0, 24.0/255.0, 246.0/255.0), //blue
-        (133.0 / 255.0, 3.0/255.0, 123.0/255.0), //purple
-        (255.0 / 255.0, 0.0/255.0, 24.0/255.0), //red
-        (255.0 / 255.0, 127.0/255.0, 75.0/255.0), //orange
-        (254.0 / 255.0, 255.0/255.0, 83.0/255.0), //yellow
-        (0 / 255.0, 129.0 / 255.0, 37.0 / 255.0), //green
         ]
 
 
@@ -79,6 +79,30 @@ class ViewController: UIViewController {
         tempImageView.image = nil
         originalImage = nil
         imageViewPhoto.image = myImage
+        
+        viewBackgroundColorPallette.layer.cornerRadius = 8
+        
+        
+        //buttons
+        btnSave.layer.cornerRadius = 4
+        
+        
+        btnDraw.backgroundColor = .clear
+        btnDraw.layer.cornerRadius = btnDraw.frame.width / 2
+        btnDraw.layer.borderWidth = 2
+        btnDraw.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+        
+        btnCancel.backgroundColor = .clear
+        btnCancel.layer.cornerRadius = btnCancel.frame.width / 2
+        btnCancel.layer.borderWidth = 2
+        btnCancel.layer.borderColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1.0).cgColor
+        
+
+        btnCancel.backgroundColor = UIColor(red: 199/255.0, green: 199/255.0, blue: 205/255.0, alpha: 1.0)
+
+
+
+
     
     }
     
@@ -199,8 +223,9 @@ class ViewController: UIViewController {
         
         if(isDrawing){
             
-            colorPallet.alpha = 1
-            btnReset.alpha = 1
+            viewBackgroundColorPallette.fadeIn(0.24)
+            colorPallet.fadeIn(0.25)
+            btnReset.fadeIn(0.25)
             btnDraw.backgroundColor = .black
             btnDraw.layer.borderColor = UIColor.white.cgColor
             print("drawing!")
@@ -209,8 +234,9 @@ class ViewController: UIViewController {
         
         } else{
 
-            colorPallet.alpha = 0
-            btnReset.alpha = 0
+            viewBackgroundColorPallette.fadeOut(0.24)
+            colorPallet.fadeOut(0.25)
+            btnReset.fadeOut(0.25)
             btnDraw.backgroundColor = .clear
             btnDraw.layer.borderColor = UIColor.clear.cgColor
             print("not drawing!")
@@ -296,12 +322,7 @@ class ViewController: UIViewController {
         
         // 2
         (red, green, blue) = colors[index]
-        print(red*255, green*255, blue*255)
         btnDraw.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
-
-        
-        
-        
 
         
         // 3
