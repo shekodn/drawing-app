@@ -83,28 +83,8 @@ class ViewController: UIViewController {
         
         viewBackgroundColorPallette.layer.cornerRadius = 8
         
-        
-        //buttons
-        btnSave.layer.cornerRadius = 4
-        
-        
-        btnDraw.backgroundColor = .clear
-        btnDraw.layer.cornerRadius = btnDraw.frame.width / 2
-        btnDraw.layer.borderWidth = 2
-        btnDraw.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
-        
-        btnCancel.backgroundColor = .clear
-        btnCancel.layer.cornerRadius = btnCancel.frame.width / 2
-        btnCancel.layer.borderWidth = 2
-        btnCancel.layer.borderColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1.0).cgColor
-        
-
-        btnCancel.backgroundColor = UIColor(red: 199/255.0, green: 199/255.0, blue: 205/255.0, alpha: 1.0)
-
-
-
-
     
+
     }
     
     
